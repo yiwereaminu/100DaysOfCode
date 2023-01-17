@@ -1,0 +1,23 @@
+dictionaries in python
+dictNmae = {
+    key : value,
+    nkeyame : value
+}
+assessing element
+dictNmae[key]
+
+add element or resign element
+dictNmae[key] = value
+
+create an empty dictionary
+dictName = {}
+
+wipe an existing dictionary
+dictNmae = {}
+
+nesting dictionaries
+dictionaries can have a list or another dictionary as it value
+{
+    key: [list],
+    key1: {dictionary}
+}
