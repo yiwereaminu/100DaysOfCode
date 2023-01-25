@@ -1,0 +1,8 @@
+<!-- global scope
+avoid modifying global scope
+you can however use the return statement to modify the global scope. 
+
+global constant:
+the name coversion in python is to name them in uppercase seperated by underscores
+
+eg: HTTP_ADDRESS = '' -->

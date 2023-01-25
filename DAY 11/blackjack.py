@@ -12,9 +12,7 @@ def deal_card():
 user_cards = []
 computer_cards = []
 
-for _ in range(2):
-   user_cards.append(deal_card())
-   computer_cards.append(deal_card())
+
 
 
 
@@ -59,33 +57,43 @@ def compare(user_score, comp_score):
         print("computer wins") 
     else:
         print("User wins")
-    
-user_score = calculate_score(user_cards)
-comp_score = calculate_score(computer_cards)
-
-flag = True
-
-if user_score == 0 or comp_score == 0 or user_score > 21:
-    flag =False
-
-
-
-
-play = input("Do you want to play a game of BlackJack? Type 'y' or 'n': ").lower()
-if play == 'n':
-    exit()
-else:
-    print(art.logo)
-    while flag:
-        print(f"Your cards: {user_cards}, current score: {calculate_score(user_cards)}")
-        print(f"Computer's cards: {computer_cards[0]}")
-        flag = drawAnotherCard(flag)
-        
-
-while comp_score !=0 and  comp_score < 17:
-    computer_cards.append(deal_card())
+restart_game = True
+while restart_game:
+    user_cards = []
+    computer_cards = []
+    for _ in range(2):
+       user_cards.append(deal_card())
+       computer_cards.append(deal_card())    
+    user_score = calculate_score(user_cards)
     comp_score = calculate_score(computer_cards)
 
-print(f"Computer's cards: {computer_cards}, current score: {calculate_score(computer_cards)}") 
+    flag = True
 
-compare(calculate_score(user_cards),calculate_score(computer_cards))
+    if user_score == 0 or comp_score == 0 or user_score > 21:
+        flag =False
+
+
+
+
+    play = input("Do you want to play a game of BlackJack? Type 'y' or 'n': ").lower()
+    if play == 'n':
+        exit()
+    else:
+        print(art.logo)
+        while flag:
+            print(f"Your cards: {user_cards}, current score: {calculate_score(user_cards)}")
+            print(f"Computer's cards: {computer_cards[0]}")
+            flag = drawAnotherCard(flag)
+            
+
+    while comp_score !=0 and  comp_score < 17:
+        computer_cards.append(deal_card())
+        comp_score = calculate_score(computer_cards)
+
+    print(f"Computer's cards: {computer_cards}, current score: {calculate_score(computer_cards)}") 
+
+    compare(calculate_score(user_cards),calculate_score(computer_cards))
+    restart = input("Do you want to restart the game? type 'y' or 'n'").lower()
+    if restart == 'n':
+        restart_game = False
+    
