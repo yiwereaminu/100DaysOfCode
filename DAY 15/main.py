@@ -37,5 +37,22 @@ def check_for_sufficient_resource(choice):
             return True
 
 
+def process_coins():
+    print("Please insert coins.")
+    quarters = int(input("how many quarters?: "))
+    dimes = int(input("how many dimes?: "))
+    nickles = int(input("how many nickles?: "))
+    pennies = int(input("how many pennies?: "))
+    total_coins = 0.25 * quarters + 0.1 * dimes + 0.05 * nickles + 0.01 * pennies
+    cost = resources.MENU[user_choice]['cost']
+    if total_coins < cost:
+        print("Sorry that's not enough money. Money refunded.")
+        return False
+    elif total_coins > cost:
+        print(f"Here is ${round((total_coins-cost), 2)} in change.")
+        return True
+
+
+process_coins()
 
 check_for_sufficient_resource(user_choice)
