@@ -6,6 +6,7 @@ print(resources.resources)
 
 user_choice = input("What would you like? (espresso/latte/cappuccino):").lower()
 
+
 #  TODO 2 check if there is enough resources to serve the user
 def check_for_sufficient_resource(choice):
     """this function checks if there are enough resources to make the beverage of choice"""
@@ -20,15 +21,21 @@ def check_for_sufficient_resource(choice):
         milk = resources.MENU[choice]['ingredients']['milk']
         if available_water < water:
             print(f"Sorry there is not enough water")
+            return True
         elif available_coffee < coffee:
-            print('Sorry there not enough coffee')
+            print('Sorry there is not enough coffee')
+            return True
         elif available_milk < milk:
             print("Sorry there is not enough milk")
+            return True
     elif choice == 'espresso':
         if available_water < water:
             print("Sorry there is not enough water")
+            return True
         elif available_coffee < coffee:
             print("Sorry there is not enough coffee")
+            return True
+
 
 
 check_for_sufficient_resource(user_choice)
