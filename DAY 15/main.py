@@ -54,6 +54,7 @@ def process_coins():
         return True
 
 
+
 def make_beverage(choice):
     choice = user_choice
 
@@ -73,8 +74,21 @@ def make_beverage(choice):
         resources.resources['milk'] = available_milk - resources.MENU[user_choice]['ingredients']['milk']
 
 
+def print_report():
+    print(f"Water: {resources.resources['water']}")
+    print(f"Milk: {resources.resources['milk']}")
+    print(f"Coffee: {resources.resources['coffee']}")
+    print(f"Money: ${process_coins}")
+
+
+# for i in range(0, len(resources.resources)):
+#     # print(f"{i}: {resources.resources[i]}")
+#
+#     print(f"{list(resources.resources)[i]}: {resources.resources[i]}")
 print(resources.resources['water'])
+
 process_coins()
 check_for_sufficient_resource(user_choice)
 make_beverage(user_choice)
 print(resources.resources['water'])
+print_report()
