@@ -1,0 +1,3 @@
+object oriented programming
+classes are blueprint that can be used to create ojects
+class
